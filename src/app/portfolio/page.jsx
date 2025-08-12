@@ -60,25 +60,58 @@ const Page = () => {
                         <div className='w-screen h-screen flex items-center justify-center bg-gradient-to-r from-purple-300 to-red-300'></div>
                         {items.map((item) => (
                             <div key={item.id} className={`w-screen h-screen flex items-center justify-center bg-gradient-to-r ${item.color}`}>
-                                <div className='flex flex-col gap-8 text-white'>
-                                    <h1>{item.title}</h1>
-                                    <div className='relative w-full'>
-                                        <Image src={item.img} alt='' fill />
+                                <div className='flex flex-col gap-3 text-white'>
+                                    <h1 className='text-xl font-bold  md:text-4xl'>{item.title}</h1>
+                                    <div className="relative w-72 h-56 md:w-[400px] md:h-[250px]">
+                                        <Image src={item.img} alt="" fill />
                                     </div>
-                                    <p>{item.desc}</p>
-                                    <Link href={item.link}>See Demo</Link>
+                                    <p className="w-[350px]">
+                                        {item.desc}
+                                    </p>
+                                    <Link href={item.link} className="flex justify-end">
+                                        <button className="p-2 text-sm md:text-md bg-white text-gray-600 font-semibold m-4 rounded">See Demo</button>
+                                    </Link>
                                 </div>
                             </div>
                         ))}
                     </motion.div>
                 </div>
-                <div className='w-screen h-screen flex flex-col gap-12 justify-center items-center text-center'>
-                    <h1>Do you have a project?</h1>
-                    <div className='relative'>
-
-                    </div>
+            </div>
+            <div className='h-[130vh] w-screen flex flex-col justify-center items-center text-center'>
+                <h1 className='lg:text-6xl text-3xl font-semibold'>Do you have a project?</h1>
+                <div className="relative">
+                    {/*  */}
+                    <motion.svg
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 8, ease: "linear", repeat: Infinity }}
+                        viewBox="0 0 300 300"
+                        className="w-64 h-64 md:w-[500px] md:h-[500px]"
+                    >
+                        <defs>
+                            <path
+                                id="circlePath"
+                                d="M 150, 150 m -60, 0 a 60,60 0 0,1 120,0 a 60,60 0 0,1 -120,0 "
+                            />
+                        </defs>
+                        <text fill="#000">
+                            <textPath xlinkHref="#circlePath" className="text-xl">
+                                Front-end Developer and UI Designer
+                            </textPath>
+                        </text>
+                    </motion.svg>
+                    <Link
+                        href="/contact"
+                        className="w-16 h-16 md:w-28 md:h-28 absolute top-0 left-0 right-0 bottom-0 m-auto bg-black text-white rounded-full flex items-center justify-center"
+                    >
+                        Hire Me
+                    </Link>
                 </div>
             </div>
+            {/* <div className='w-screen h-screen flex flex-col justify-center items-center text-center'>
+                
+                
+            </div> */}
+            {/*  */}
         </motion.div>
     );
 };
