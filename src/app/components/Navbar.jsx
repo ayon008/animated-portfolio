@@ -69,8 +69,8 @@ const Navbar = () => {
 
 
     return (
-        <div className='h-full flex items-center justify-between px-4 sm:px-8 md:px-12 lg:px-20 xl:px-48'>
-            <div className='hidden md:flex justify-center gap-4 text-black w-1/3 text-xl font-medium'>
+        <div className='h-full flex items-center justify-between px-2 sm:px-4 md:px-8 lg:px-12 xl:px-20'>
+            <div className='hidden md:flex gap-4 text-black w-1/3 text-xl font-medium'>
                 {links.map((link, i) => {
                     return (
                         <NavLink link={link} key={i}>{link.name}</NavLink>
@@ -85,7 +85,7 @@ const Navbar = () => {
                 </Link>
             </div>
             {/* Social */}
-            <div className='hidden md:flex gap-4 w-1/3 justify-center'>
+            <div className='hidden md:flex gap-4 w-1/3 justify-end'>
                 <Link href={'/'}>
                     <Image src={'/github.png'} alt='github' width={24} height={24} />
                 </Link>
