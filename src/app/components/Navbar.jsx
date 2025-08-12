@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import NavLink from './NavLink';
-import { motion, stagger } from 'framer-motion'
+import { AnimatePresence, motion, stagger } from 'framer-motion'
 
 const links = [
     { url: '/', name: 'Home' },
@@ -113,19 +113,26 @@ const Navbar = () => {
                     <motion.div animate={open ? 'opened' : 'closed'} variants={bottomVariants} className='w-10 h-1 bg-black rounded origin-left'></motion.div>
                 </button>
                 {/* Menu items */}
-                {
-                    open && <motion.div variants={listVariant} initial={'closed'} animate={'opened'} className='absolute h-screen w-screen top-0 left-0 text-white bg-black flex items-center justify-center flex-col gap-8 text-4xl z-40'>
-                        {
-                            links.map((link, index) => (
+
+                <AnimatePresence>
+                    {open && (
+                        <motion.div
+                            variants={listVariant}
+                            initial="closed"
+                            animate="opened"
+                            exit="closed"
+                            className="absolute h-screen w-screen top-0 left-0 text-white bg-black flex items-center justify-center flex-col gap-8 text-4xl z-40"
+                        >
+                            {links.map((link, index) => (
                                 <motion.div variants={listedVariant} key={index}>
-                                    <Link href={link.url}>
+                                    <Link href={link.url} onClick={() => setOpen(false)}>
                                         {link.name}
                                     </Link>
                                 </motion.div>
-                            ))
-                        }
-                    </motion.div>
-                }
+                            ))}
+                        </motion.div>
+                    )}
+                </AnimatePresence>
             </div>
         </div>
     );
