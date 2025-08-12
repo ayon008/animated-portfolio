@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={inter.className}>
         <PageAnimation>
-          <div className="w-screen h-screen bg-gradient-to-b from-blue-100 to-red-100">
+          <div className="w-screen md:h-screen h-auto bg-gradient-to-b from-blue-100 to-red-100">
             <div className="h-24">
               <Navbar />
             </div>
