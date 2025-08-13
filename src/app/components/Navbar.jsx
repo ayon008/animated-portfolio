@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import NavLink from './NavLink';
-import { AnimatePresence, motion, stagger } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 
 const links = [
     { url: '/', name: 'Home' },

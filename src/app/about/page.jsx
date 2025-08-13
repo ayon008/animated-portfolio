@@ -2,7 +2,8 @@
 import React, { useRef } from 'react';
 import { motion, useInView, useScroll } from 'framer-motion'
 import Brain from '../components/Brain';
-
+import Image from 'next/image';
+import profilePic from '@/../public/IMG_0106_result_result_result2.jpg';
 const Page = () => {
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
@@ -24,6 +25,9 @@ const Page = () => {
                     {/* Text Container */}
                     <div className='p-2 sm:p-4 md:p-8 lg:p-12 xl:p-20 flex flex-col gap-12 lg:w-2/3 lg:pr-0 xl:w-1/2 h-full'>
                         <div className='flex flex-col gap-6 justify-center min-h-[calc(100vh-6rem)]'>
+                            <div className='relative'>
+                                <Image src={profilePic} className='w-56 h-56 rounded-full' width={224} height={224} alt='profile-pic' />
+                            </div>
                             <h1 className='text-2xl font-bold'>Biography</h1>
                             <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quaerat blanditiis voluptatibus quisquam nam eos aut vero mollitia nesciunt possimus nemo!</p>
                             <span className='italic'>Lorem ipsum dolor sit amet.</span>
